@@ -16,7 +16,7 @@ public static class Lab1Runner
 
     public static int[] LoadData() // O(n)
     {
-        var filePath = @".\Lab1Data.csv"; // Data.csv will copy to the output directory on build.
+        var filePath = @".\Lab1\Lab1Data.csv"; // Data.csv will copy to the output directory on build.
 
         var numbers = File.ReadAllText(filePath)
             .Split(Environment.NewLine)
