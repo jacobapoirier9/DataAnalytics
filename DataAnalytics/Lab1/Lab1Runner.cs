@@ -14,8 +14,7 @@ public static class Lab1Runner
         Console.WriteLine($"Average: {numbers.FindAverage()}");
     }
 
-    // Big-O: O(n)
-    public static int[] LoadData()
+    public static int[] LoadData() // O(n)
     {
         var filePath = @".\Lab1Data.csv"; // Data.csv will copy to the output directory on build.
 
@@ -27,8 +26,7 @@ public static class Lab1Runner
         return numbers;
     }
 
-    // Big-O: O(n - 1)
-    public static int FindMin(this int[] numbers)
+    public static int FindMin(this int[] numbers) // O(n)
     {
         if (numbers.Length == 0)
             return 0;
@@ -43,8 +41,7 @@ public static class Lab1Runner
         return min;
     }
 
-    // Big-O: O(n - 1)
-    public static int FindMax(this int[] numbers)
+    public static int FindMax(this int[] numbers) // O(n)
     {
         if (numbers.Length == 0)
             return 0;
@@ -59,8 +56,7 @@ public static class Lab1Runner
         return max;
     }
 
-    // Big-O: O(n - 1)
-    public static double FindAverage(this int[] numbers)
+    public static double FindAverage(this int[] numbers) // O(n)
     {
         if (numbers.Length == 0)
             return 0;
