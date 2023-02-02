@@ -47,7 +47,7 @@ public static class Lab2Runner
         return -1;
     }
 
-    public static int BinarySearch(int[] array, int target)
+    public static int BinarySearch(int[] array, int target) // O(log n)
     {
         Array.Sort(array);
 
