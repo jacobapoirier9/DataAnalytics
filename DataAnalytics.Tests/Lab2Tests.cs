@@ -8,28 +8,28 @@ public class Lab2Tests
     [Fact]
     public void LinearSearch_ElementFound()
     {
-        var index = Lab2Runner.LinearSearch(_array, 45);
+        int index = Lab2Runner.LinearSearch(_array, 45);
         Assert.Equal(4, index);
     }
 
     [Fact]
     public void LinearSearch_ElementNotFound()
     {
-        var index = Lab2Runner.LinearSearch(_array, 200);
+        int index = Lab2Runner.LinearSearch(_array, 200);
         Assert.Equal(-1, index);
     }
 
     [Fact]
     public void BinarySearch_ElementFound()
     {
-        var index = Lab2Runner.BinarySearch(_array, 45);
+        int index = Lab2Runner.BinarySearch(_array, 45);
         Assert.Equal(4, index);
     }
 
     [Fact]
     public void BinarySearch_ElementNotFound()
     {
-        var index = Lab2Runner.BinarySearch(_array, 200);
+        int index = Lab2Runner.BinarySearch(_array, 200);
         Assert.Equal(-1, index);
     }
 }

@@ -4,10 +4,10 @@ public static class Lab2Runner
 {
     public static void Run(string[] args)
     {
-        var arraySize = Helper.GetUserInput<int>("Enter size of array (n)");
-        var array = Helper.GenerateRandomArray(arraySize);
+        int arraySize = Helper.GetUserInput<int>("Enter size of array (n)");
+        int[] array = Helper.GenerateRandomArray(arraySize);
 
-        var target = default(int);
+        int target;
         while (true)
         {
             target = Helper.GetUserInput<int>("Enter a number to search array for");
@@ -26,15 +26,15 @@ public static class Lab2Runner
             break;
         }
 
-        LinearSearch(array, target);
-        BinarySearch(array, target);
+        _ = LinearSearch(array, target);
+        _ = BinarySearch(array, target);
     }
 
     public static int LinearSearch(int[] array, int target) // O(n)
     {
         Console.WriteLine($"Beginning linear search for {target}..");
 
-        for (var i = 0; i < array.Length; i++)
+        for (int i = 0; i < array.Length; i++)
         {
             if (array[i] == target)
             {
@@ -53,13 +53,13 @@ public static class Lab2Runner
 
         Console.WriteLine($"Beginning binary search for {target}..");
 
-        var low = 0;
-        var high = array.Length - 1;
-        var counter = 1;
+        int low = 0;
+        int high = array.Length - 1;
+        int counter = 1;
 
         while (low <= high)
         {
-            var middle = (low + high) / 2;
+            int middle = (low + high) / 2;
             if (target == array[middle])
             {
                 Console.WriteLine($"Found {target} after {counter} attempts!");
