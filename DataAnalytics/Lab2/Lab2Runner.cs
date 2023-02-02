@@ -30,7 +30,7 @@ public static class Lab2Runner
         BinarySearch(array, target);
     }
 
-    private static void LinearSearch(int[] array, int target) // O(n)
+    public static int LinearSearch(int[] array, int target) // O(n)
     {
         Console.WriteLine($"Beginning linear search for {target}..");
 
@@ -39,14 +39,15 @@ public static class Lab2Runner
             if (array[i] == target)
             {
                 Console.WriteLine($"Found {target} after {i + 1} attempts!");
-                return;
+                return i;
             }
         }
 
         Console.WriteLine($"Could not find {target} after {array.Length} attempts.");
+        return -1;
     }
 
-    private static void BinarySearch(int[] array, int target)
+    public static int BinarySearch(int[] array, int target)
     {
         Array.Sort(array);
 
@@ -62,7 +63,7 @@ public static class Lab2Runner
             if (target == array[middle])
             {
                 Console.WriteLine($"Found {target} after {counter} attempts!");
-                return;
+                return middle;
             }
 
             else if (target < array[middle])
@@ -74,5 +75,6 @@ public static class Lab2Runner
         }
 
         Console.WriteLine($"Could not find {target} after {array.Length} attempts.");
+        return -1;
     }
 }
