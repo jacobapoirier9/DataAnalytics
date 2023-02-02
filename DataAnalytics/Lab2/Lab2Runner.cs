@@ -4,13 +4,13 @@ public static class Lab2Runner
 {
     public static void Run(string[] args)
     {
-        var arraySize = 6; // Helper.GetUserInput<int>("Enter size of array (n)");
-        var array = new int[] { 34, 20, 15, 27, 5, 17 }; // Helper.GenerateRandomArray(arraySize);
+        var arraySize = Helper.GetUserInput<int>("Enter size of array (n)");
+        var array = Helper.GenerateRandomArray(arraySize);
 
         var target = default(int);
         while (true)
         {
-            target = 20; // Helper.GetUserInput<int>("Enter a number to search array for");
+            target = Helper.GetUserInput<int>("Enter a number to search array for");
 
             if (target < 0)
             {
