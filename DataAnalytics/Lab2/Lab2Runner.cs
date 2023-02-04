@@ -1,4 +1,6 @@
-﻿namespace DataAnalytics.Lab2;
+﻿using System.Runtime.CompilerServices;
+
+namespace DataAnalytics.Lab2;
 
 public static class Lab2Runner
 {
@@ -27,6 +29,18 @@ public static class Lab2Runner
         }
 
         Run(array, target);
+    }
+
+    public static void RunWithHardcodedValues()
+    {
+        foreach (var n in new int[] { 10, 100, 10_000, 100_000 })
+        {
+            var array = Helper.GenerateRandomArray(n);
+            var target = -1;
+
+            Run(array, target);
+            Console.WriteLine();
+        }
     }
 
     public static void Run(int[] array, int target)

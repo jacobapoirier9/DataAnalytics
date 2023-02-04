@@ -6,6 +6,6 @@ public static class Program
 {
     public static void Main(string[] args)
     {
-        Lab2Runner.RunWithUserInput();
+        Lab2Runner.RunWithHardcodedValues();
     }
 }
