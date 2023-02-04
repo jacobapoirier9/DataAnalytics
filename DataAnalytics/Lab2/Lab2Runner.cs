@@ -93,7 +93,7 @@ public static class Lab2Runner
             counter++;
         }
 
-        Console.WriteLine($"Could not find {target} after {array.Length} attempts.");
+        Console.WriteLine($"Could not find {target} after {counter} attempts.");
         return -1;
     }
 }
