@@ -2,7 +2,7 @@
 
 public static class Lab1Runner
 {
-    public static void Run(string[] args)
+    public static void Run()
     {
         var numbers = LoadData();
 

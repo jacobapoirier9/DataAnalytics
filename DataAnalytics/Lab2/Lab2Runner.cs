@@ -2,7 +2,7 @@
 
 public static class Lab2Runner
 {
-    public static void RunWithUserInput(string[] args)
+    public static void RunWithUserInput()
     {
         var arraySize = Helper.GetUserInput<int>("Enter size of array (n)");
         var array = Helper.GenerateRandomArray(arraySize);
