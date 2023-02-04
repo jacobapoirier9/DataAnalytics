@@ -2,7 +2,7 @@
 
 public static class Lab2Runner
 {
-    public static void Run(string[] args)
+    public static void RunWithUserInput(string[] args)
     {
         var arraySize = Helper.GetUserInput<int>("Enter size of array (n)");
         var array = Helper.GenerateRandomArray(arraySize);
@@ -26,6 +26,11 @@ public static class Lab2Runner
             break;
         }
 
+        Run(array, target);
+    }
+
+    public static void Run(int[] array, int target)
+    {
         _ = LinearSearch(array, target);
         _ = BinarySearch(array, target);
     }
