@@ -10,42 +10,42 @@ public class Lab1Tests
     [Fact]
     public void FindMin_EmptyArray()
     {
-        int min = Lab1Runner.FindMin(_emptyArray);
+        var min = Lab1Runner.FindMin(_emptyArray);
         Assert.Equal(0, min);
     }
 
     [Fact]
     public void FindMax_EmptyArray()
     {
-        int max = Lab1Runner.FindMax(_emptyArray);
+        var max = Lab1Runner.FindMax(_emptyArray);
         Assert.Equal(0, max);
     }
 
     [Fact]
     public void FindAverage_EmptyArray()
     {
-        double avg = Lab1Runner.FindAverage(_emptyArray);
+        var avg = Lab1Runner.FindAverage(_emptyArray);
         Assert.Equal(0, avg);
     }
 
     [Fact]
     public void FindMin_NotEmptyArray()
     {
-        int min = Lab1Runner.FindMin(_notEmptyArray);
+        var min = Lab1Runner.FindMin(_notEmptyArray);
         Assert.Equal(1, min);
     }
 
     [Fact]
     public void FindMax_NotEmptyArray()
     {
-        int max = Lab1Runner.FindMax(_notEmptyArray);
+        var max = Lab1Runner.FindMax(_notEmptyArray);
         Assert.Equal(9, max);
     }
 
     [Fact]
     public void FindAverage_NotEmptyArray()
     {
-        double avg = Lab1Runner.FindAverage(_notEmptyArray);
+        var avg = Lab1Runner.FindAverage(_notEmptyArray);
         Assert.Equal(4.3636363636363633, avg);
     }
 }

@@ -5,9 +5,9 @@ public class HelpersTests
     [Fact]
     public void GeneratesRandomArray()
     {
-        int arraySize = 124;
+        var arraySize = 124;
 
-        int[] array = Helper.GenerateRandomArray(arraySize);
+        var array = Helper.GenerateRandomArray(arraySize);
 
         Assert.Equal(arraySize, array.Length);
         Assert.All(array, number => Assert.False(number > arraySize * 10));

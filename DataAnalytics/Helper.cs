@@ -4,7 +4,7 @@ public static class Helper
 {
     public static T GetUserInput<T>(string prompt) where T : IConvertible
     {
-        string? response;
+        var response = default(string);
         do
         {
             Console.WriteLine(prompt);
@@ -17,10 +17,10 @@ public static class Helper
 
     public static int[] GenerateRandomArray(int arraySize)
     {
-        Random random = new();
+        var random = new Random();
 
-        int[] array = new int[arraySize];
-        for (int i = 0; i < arraySize; i++)
+        var array = new int[arraySize];
+        for (var i = 0; i < arraySize; i++)
         {
             array[i] = random.Next(0, arraySize * 10);
         }

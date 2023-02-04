@@ -4,7 +4,7 @@ public static class Lab1Runner
 {
     public static void Run(string[] args)
     {
-        int[] numbers = LoadData();
+        var numbers = LoadData();
 
         Console.WriteLine($"Numbers: {string.Join(", ", numbers)}");
         Console.WriteLine($"Minimum: {numbers.FindMin()}");
@@ -14,9 +14,9 @@ public static class Lab1Runner
 
     public static int[] LoadData() // O(n)
     {
-        string filePath = @".\Lab1\Lab1Data.csv"; // Data.csv will copy to the output directory on build.
+        var filePath = @".\Lab1\Lab1Data.csv"; // Data.csv will copy to the output directory on build.
 
-        int[] numbers = File.ReadAllText(filePath)
+        var numbers = File.ReadAllText(filePath)
             .Split(Environment.NewLine)
             .Select(line => int.Parse(line))
             .ToArray();
@@ -29,8 +29,8 @@ public static class Lab1Runner
         if (numbers.Length == 0)
             return 0;
 
-        int min = numbers[0];
-        for (int i = 1; i < numbers.Length; i++)
+        var min = numbers[0];
+        for (var i = 1; i < numbers.Length; i++)
         {
             if (numbers[i] < min)
                 min = numbers[i];
@@ -44,8 +44,8 @@ public static class Lab1Runner
         if (numbers.Length == 0)
             return 0;
 
-        int max = numbers[0];
-        for (int i = 1; i < numbers.Length; i++)
+        var max = numbers[0];
+        for (var i = 1; i < numbers.Length; i++)
         {
             if (numbers[i] > max)
                 max = numbers[i];
@@ -59,13 +59,13 @@ public static class Lab1Runner
         if (numbers.Length == 0)
             return 0;
 
-        int sum = numbers[0];
-        for (int i = 1; i < numbers.Length; i++)
+        var sum = numbers[0];
+        for (var i = 1; i < numbers.Length; i++)
         {
             sum += numbers[i];
         }
 
-        double avg = (double)sum / numbers.Length;
+        var avg = (double)sum / numbers.Length;
         return avg;
     }
 }
