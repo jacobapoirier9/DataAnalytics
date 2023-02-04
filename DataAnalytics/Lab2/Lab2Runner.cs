@@ -28,7 +28,7 @@ public static class Lab2Runner
             break;
         }
 
-        Run(array, target);
+        RunCore(array, target);
     }
 
     public static void RunWithHardcodedValues()
@@ -38,12 +38,12 @@ public static class Lab2Runner
             var array = Helper.GenerateRandomArray(n);
             var target = -1;
 
-            Run(array, target);
+            RunCore(array, target);
             Console.WriteLine();
         }
     }
 
-    public static void Run(int[] array, int target)
+    public static void RunCore(int[] array, int target)
     {
         _ = LinearSearch(array, target);
         _ = BinarySearch(array, target);
