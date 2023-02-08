@@ -24,14 +24,18 @@ public partial class Form1 : Form
 
     private void _filterByLastNameTextBox_TextChanged(object sender, EventArgs e)
     {
-        var thread = _filterByLastNameTextBox.Text;
+        ApplyCustomersFilter(_filterByLastNameTextBox.Text, c => c.LastName);
+    }
+
+    private void ApplyCustomersFilter(string thread, Func<Customer, string> propertySelection)
+    {
         if (string.IsNullOrEmpty(thread))
         {
             ShowCustomers(_customers);
         }
         else
         {
-            var filtered = _customers.Where(c => c.LastName.Contains(thread, StringComparison.OrdinalIgnoreCase)).ToList();
+            var filtered = _customers.Where(c => propertySelection(c).Contains(thread, StringComparison.OrdinalIgnoreCase)).ToList();
             ShowCustomers(filtered);
         }
     }
