@@ -32,6 +32,8 @@ partial class Form1
             this._selectedCustomerPictureBox = new System.Windows.Forms.PictureBox();
             this._filterByLastNameTextBox = new System.Windows.Forms.TextBox();
             this._filterByLastNameLabel = new System.Windows.Forms.Label();
+            this._filterByStateLabel = new System.Windows.Forms.Label();
+            this._filterByStateTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this._selectedCustomerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,11 +71,30 @@ partial class Form1
             this._filterByLastNameLabel.TabIndex = 3;
             this._filterByLastNameLabel.Text = "Filter by Last Name..";
             // 
+            // _filterByStateLabel
+            // 
+            this._filterByStateLabel.AutoSize = true;
+            this._filterByStateLabel.Location = new System.Drawing.Point(532, 76);
+            this._filterByStateLabel.Name = "_filterByStateLabel";
+            this._filterByStateLabel.Size = new System.Drawing.Size(84, 15);
+            this._filterByStateLabel.TabIndex = 4;
+            this._filterByStateLabel.Text = "Filter by State..";
+            // 
+            // _filterByStateTextBox
+            // 
+            this._filterByStateTextBox.Location = new System.Drawing.Point(532, 100);
+            this._filterByStateTextBox.Name = "_filterByStateTextBox";
+            this._filterByStateTextBox.Size = new System.Drawing.Size(199, 23);
+            this._filterByStateTextBox.TabIndex = 5;
+            this._filterByStateTextBox.TextChanged += new System.EventHandler(this._filterByStateTextBox_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 443);
+            this.Controls.Add(this._filterByStateTextBox);
+            this.Controls.Add(this._filterByStateLabel);
             this.Controls.Add(this._filterByLastNameLabel);
             this.Controls.Add(this._filterByLastNameTextBox);
             this.Controls.Add(this._selectedCustomerPictureBox);
@@ -93,4 +114,6 @@ partial class Form1
     private PictureBox _selectedCustomerPictureBox;
     private TextBox _filterByLastNameTextBox;
     private Label _filterByLastNameLabel;
+    private Label _filterByStateLabel;
+    private TextBox _filterByStateTextBox;
 }

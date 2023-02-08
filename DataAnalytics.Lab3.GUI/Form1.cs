@@ -5,6 +5,7 @@ namespace DataAnalytics.Lab3.GUI;
 public partial class Form1 : Form
 {
     private readonly List<Customer> _customers;
+    private const string _notFoundImageLocation = @".\Lab3\NotFound.png";
 
     public Form1()
     {
@@ -15,6 +16,8 @@ public partial class Form1 : Form
     private void Form1_Load(object sender, EventArgs e)
     {
         ShowCustomers(_customers);
+        _selectedCustomerPictureBox.ImageLocation = _notFoundImageLocation;
+
         _customersListBox.SelectedIndexChanged += (sender, args) =>
         {
             var selectedCustomer = _customers[_customersListBox.SelectedIndex];
@@ -25,6 +28,10 @@ public partial class Form1 : Form
     private void _filterByLastNameTextBox_TextChanged(object sender, EventArgs e)
     {
         ApplyCustomersFilter(_filterByLastNameTextBox.Text, c => c.LastName);
+    }
+    private void _filterByStateTextBox_TextChanged(object sender, EventArgs e)
+    {
+        ApplyCustomersFilter(_filterByStateTextBox.Text, c => c.State);
     }
 
     private void ApplyCustomersFilter(string thread, Func<Customer, string> propertySelection)
@@ -54,6 +61,7 @@ public partial class Form1 : Form
         {
             _customersListBox.ForeColor = Color.Red;
             _customersListBox.Items.Add("No customers found.");
+            _selectedCustomerPictureBox.ImageLocation = _notFoundImageLocation;
         }
     }
 }
