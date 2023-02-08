@@ -32,4 +32,9 @@ public class Customer
         _email = email;
         _photoLink = photoLink;
     }
+
+    public override string ToString()
+    {
+        return _firstName + " " + _lastName + " (" + _address + ", " + _city + ", " + _zipCode + "), (" + _phoneNumber + ", " + _email + ") - " + _photoLink;
+    }
 }
