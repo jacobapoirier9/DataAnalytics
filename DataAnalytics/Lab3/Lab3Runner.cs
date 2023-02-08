@@ -50,6 +50,16 @@ public class Customer
     private readonly string _email;
     private readonly string _photoLink;
 
+    public string FirstName => _firstName;
+    public string LastName => _lastName;
+    public string Address => _address;
+    public string City => _city;
+    public string State => _state;
+    public string ZipCode => _zipCode;
+    public string PhoneNumber => _phoneNumber;
+    public string Email => _email;
+    public string PhotoLink => _photoLink;
+
     public Customer(string firstName, string lastName, string address, string city, string state, string zipCode, string phoneNumber, string email, string photoLink)
     {
         _firstName = firstName;
