@@ -4,6 +4,15 @@ public static class Lab3Runner
 {
     public static void Run()
     {
+        var customers = LoadCustomers();
+        foreach (var customer in customers)
+        {
+            Console.WriteLine(customer);
+        }
+    }
+
+    public static List<Customer> LoadCustomers()
+    {
         var customers = new List<Customer>();
         var lines = File.ReadAllLines(@".\Lab3\Customers.csv");
 
@@ -25,10 +34,7 @@ public static class Lab3Runner
             customers.Add(customer);
         }
 
-        foreach (var customer in customers)
-        {
-            Console.WriteLine(customer);
-        }
+        return customers;
     }
 }
 
