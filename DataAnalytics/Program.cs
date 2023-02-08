@@ -1,4 +1,4 @@
-﻿using DataAnalytics.Lab2;
+﻿using DataAnalytics.Lab3;
 
 namespace DataAnalytics;
 
@@ -6,6 +6,6 @@ public static class Program
 {
     public static void Main(string[] args)
     {
-        Lab2Runner.RunWithHardcodedValues();
+        Lab3Runner.Run();
     }
 }
