@@ -20,6 +20,13 @@ public partial class Form1 : Form
         _customersListBox.SelectedIndexChanged += (sender, args) =>
         {
             var selectedCustomer = customers[_customersListBox.SelectedIndex];
+
+            _selectedCustomerPictureBox.ImageLocation = selectedCustomer.PhotoLink;
         };
+    }
+
+    private void label2_Click(object sender, EventArgs e)
+    {
+
     }
 }
