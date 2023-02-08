@@ -4,7 +4,31 @@ public static class Lab3Runner
 {
     public static void Run()
     {
+        var customers = new List<Customer>();
+        var lines = File.ReadAllLines(@".\Lab3\Customers.csv");
 
+        foreach (var line in lines)
+        {
+            var data = line.Split(',');
+
+            var firstName = data[0];
+            var lastName = data[1];
+            var address = data[2];
+            var city = data[3];
+            var state = data[4];
+            var zipCode = data[5];
+            var phoneNumber = data[6];
+            var email = data[7];
+            var photoLink = data[8];
+
+            var customer = new Customer(firstName, lastName, address, city, state, zipCode, phoneNumber, email, photoLink);
+            customers.Add(customer);
+        }
+
+        foreach (var customer in customers)
+        {
+            Console.WriteLine(customer);
+        }
     }
 }
 
@@ -35,6 +59,6 @@ public class Customer
 
     public override string ToString()
     {
-        return _firstName + " " + _lastName + " (" + _address + ", " + _city + ", " + _zipCode + "), (" + _phoneNumber + ", " + _email + ") - " + _photoLink;
+        return _firstName + " " + _lastName + " (" + _address + ", " + _city + " " + _state + ", " + _zipCode + "), (" + _phoneNumber + ", " + _email + ") - " + _photoLink;
     }
 }
