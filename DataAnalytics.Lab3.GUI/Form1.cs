@@ -33,18 +33,15 @@ public partial class Form1 : Form
         var filteredCustomers = new List<Customer>();
         foreach (var customer in _customers)
         {
-            var lastNameFilter = _filterByLastNameTextBox.Text;
-            var stateFilter = _filterByStateTextBox.Text;
-
-            if ((string.IsNullOrEmpty(lastNameFilter) || customer.LastName.Contains(lastNameFilter, StringComparison.OrdinalIgnoreCase))
-                && (string.IsNullOrEmpty(stateFilter) || customer.State.Contains(stateFilter, StringComparison.OrdinalIgnoreCase)))
-            {
+            if (RunFilter(customer.LastName, _filterByLastNameTextBox.Text) && RunFilter(customer.State, _filterByStateTextBox.Text))
                 filteredCustomers.Add(customer);
-            }
         }
 
         ShowCustomers(filteredCustomers);
     }
+
+    private bool RunFilter(string sourceField, string thread) =>
+        string.IsNullOrEmpty(thread) || sourceField.Contains(thread, StringComparison.OrdinalIgnoreCase);
 
     private void ShowCustomers(List<Customer> customers)
     {
