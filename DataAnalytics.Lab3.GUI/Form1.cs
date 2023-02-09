@@ -6,7 +6,7 @@ public partial class Form1 : Form
 {
     private readonly List<Customer> _customers;
 
-    private const string _notFoundImageLocation = @".\Lab3\NotFound.png";
+    private const string _notFoundImageLocation = @".\NotFound.png";
 
     public Form1()
     {

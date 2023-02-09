@@ -12,4 +12,10 @@
     <ProjectReference Include="..\DataAnalytics\DataAnalytics.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="NotFound.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
