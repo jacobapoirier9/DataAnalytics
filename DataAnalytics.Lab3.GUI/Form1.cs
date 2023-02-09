@@ -5,6 +5,7 @@ namespace DataAnalytics.Lab3.GUI;
 public partial class Form1 : Form
 {
     private readonly List<Customer> _customers;
+
     private const string _notFoundImageLocation = @".\Lab3\NotFound.png";
 
     public Form1()
@@ -57,6 +58,14 @@ public partial class Form1 : Form
         {
             _customersListBox.ForeColor = Color.Red;
             _customersListBox.Items.Add("No customers found.");
+            _selectedCustomerPictureBox.ImageLocation = _notFoundImageLocation;
+        }
+        else if (_customersListBox.Items.Count == 1)
+        {
+            _customersListBox.SelectedIndex = 0;
+        }
+        else
+        {
             _selectedCustomerPictureBox.ImageLocation = _notFoundImageLocation;
         }
     }
