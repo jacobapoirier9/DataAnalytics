@@ -42,7 +42,13 @@ public partial class Form1 : Form
         }
         else
         {
-            var filtered = _customers.Where(c => propertySelection(c).Contains(thread, StringComparison.OrdinalIgnoreCase)).ToList();
+            var filtered = new List<Customer>();
+            foreach (var customer in _customers)
+            {
+                if (propertySelection(customer).Contains(thread, StringComparison.OrdinalIgnoreCase))
+                    filtered.Add(customer);
+            }
+
             ShowCustomers(filtered);
         }
     }
