@@ -25,32 +25,25 @@ public partial class Form1 : Form
         };
     }
 
-    private void _filterByLastNameTextBox_TextChanged(object sender, EventArgs e)
-    {
-        ApplyCustomersFilter(_filterByLastNameTextBox.Text, c => c.LastName);
-    }
-    private void _filterByStateTextBox_TextChanged(object sender, EventArgs e)
-    {
-        ApplyCustomersFilter(_filterByStateTextBox.Text, c => c.State);
-    }
+    private void _filterByLastNameTextBox_TextChanged(object sender, EventArgs e) => ApplyCustomerFilters();
+    private void _filterByStateTextBox_TextChanged(object sender, EventArgs e) => ApplyCustomerFilters();
 
-    private void ApplyCustomersFilter(string thread, Func<Customer, string> propertySelection)
+    private void ApplyCustomerFilters()
     {
-        if (string.IsNullOrEmpty(thread))
+        var filteredCustomers = new List<Customer>();
+        foreach (var customer in _customers)
         {
-            ShowCustomers(_customers);
-        }
-        else
-        {
-            var filtered = new List<Customer>();
-            foreach (var customer in _customers)
+            var lastNameFilter = _filterByLastNameTextBox.Text;
+            var stateFilter = _filterByStateTextBox.Text;
+
+            if ((string.IsNullOrEmpty(lastNameFilter) || customer.LastName.Contains(lastNameFilter, StringComparison.OrdinalIgnoreCase))
+                && (string.IsNullOrEmpty(stateFilter) || customer.State.Contains(stateFilter, StringComparison.OrdinalIgnoreCase)))
             {
-                if (propertySelection(customer).Contains(thread, StringComparison.OrdinalIgnoreCase))
-                    filtered.Add(customer);
+                filteredCustomers.Add(customer);
             }
-
-            ShowCustomers(filtered);
         }
+
+        ShowCustomers(filteredCustomers);
     }
 
     private void ShowCustomers(List<Customer> customers)
