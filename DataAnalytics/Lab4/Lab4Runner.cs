@@ -8,6 +8,10 @@ public static class Lab4Runner
 
     public static void Run()
     {
+    }
+
+    public static void RunWithRecursion()
+    {
         var dictionary = new Dictionary<string, string>();
         CrawlUrlRecursive(_rootsite + "index.html", dictionary);
 
