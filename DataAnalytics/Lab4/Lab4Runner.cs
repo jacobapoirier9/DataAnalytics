@@ -17,17 +17,17 @@ public static class Lab4Runner
 
         while (unvisitedHrefs.Count > 0)
         {
-            var currentUrl = unvisitedHrefs[0];
-            if (visitedHrefs.Contains(currentUrl))
+            var currentHref = unvisitedHrefs[0];
+            if (visitedHrefs.Contains(currentHref))
             {
                 unvisitedHrefs.RemoveAt(0);
                 continue;
             }
 
-            var (title, hrefs) = ExtractPageContents(currentUrl);
+            var (title, hrefs) = ExtractPageContents(currentHref);
 
-            visitedHrefs.Add(currentUrl);
-            dictionary.Add(title, currentUrl);
+            visitedHrefs.Add(currentHref);
+            dictionary.Add(title, currentHref);
             unvisitedHrefs.AddRange(hrefs);
         }
         
@@ -74,24 +74,24 @@ public static class Lab4Runner
         }
     }
 
-    private static void RecursiveCrawl(string currentUrl, Dictionary<string, string> dictionary)
+    private static void RecursiveCrawl(string currentHref, Dictionary<string, string> dictionary)
     {
-        if (dictionary.ContainsValue(currentUrl))
+        if (dictionary.ContainsValue(currentHref))
             return;
 
-        var (title, hrefs) = ExtractPageContents(currentUrl);
+        var (title, hrefs) = ExtractPageContents(currentHref);
 
-        dictionary.Add(title, currentUrl);
+        dictionary.Add(title, currentHref);
         foreach (var href in hrefs)
         {
             RecursiveCrawl(href, dictionary);
         }
     }
 
-    private static (string title, List<string> hrefs) ExtractPageContents(string currentUrl)
+    private static (string title, List<string> hrefs) ExtractPageContents(string href)
     {
         var client = new HttpClient();
-        var request = new HttpRequestMessage(HttpMethod.Get, currentUrl);
+        var request = new HttpRequestMessage(HttpMethod.Get, href);
 
         using (var response = client.Send(request))
         using (var stream = response.Content.ReadAsStream())
@@ -100,8 +100,8 @@ public static class Lab4Runner
             var html = reader.ReadToEnd();
 
             var title = Regex.Match(html, @"<title>(?<Title>.+)</title>").Groups["Title"].Value;
-            var pageUrls = Regex.Matches(html, @"<a\s.*href=['""](?<Url>[^'""<>:#]*)['""]>.*<\/a>") // Regex will not return an href that contains the ':' character (filter out http links)
-                    .Select(match => _rootsite + match.Groups["Url"].Value)
+            var pageHrefs = Regex.Matches(html, @"<a\s.*href=['""](?<Href>[^'""<>:#]*)['""]>.*<\/a>") // Regex will not return an href that contains the ':' character (filter out http links)
+                    .Select(match => _rootsite + match.Groups["Href"].Value)
                     .Where(href =>
                     {
                         if (href.EndsWith(".pdf") || href.EndsWith(".png")) // Filter out PDF and PNG documents
@@ -113,7 +113,7 @@ public static class Lab4Runner
                         return true;
                     }).ToList();
 
-            return (title, pageUrls);
+            return (title, pageHrefs);
         }
     }
 }
