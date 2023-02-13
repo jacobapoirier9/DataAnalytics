@@ -6,6 +6,6 @@ public static class Program
 {
     public static void Main(string[] args)
     {
-        Lab4Runner.Run();
+        Lab4Runner.RunRecursiveStrategy();
     }
 }
